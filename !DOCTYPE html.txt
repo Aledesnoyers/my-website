@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jordan Taylor | Accounting & Finance Portfolio</title>
+  <style>
+    /* CSS Variables for Easy Color Customization */
+    :root {
+      --primary-color: #1B365D;   /* Deep Navy */
+      --accent-color: #2B5B84;    /* Medium Blue */
+      --bg-light: #F4F6F9;        /* Soft Gray Background */
+      --text-dark: #1F2933;       /* High-Contrast Charcoal Text */
+      --text-muted: #52606D;      /* Secondary Text */
+      --white: #FFFFFF;
+    }
+
+    /* Reset & Base Accessibility Styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px; /* Accessible base font size */
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: var(--text-dark);
+      line-height: 1.6;
+      background-color: var(--white);
+    }
+
+    /* Skip Link for Keyboard Users */
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: var(--primary-color);
+      color: var(--white);
+      padding: 8px 16px;
+      z-index: 1000;
+      text-decoration: none;
+    }
+    .skip-link:focus {
+      top: 0;
+    }
+
+    /* Navigation */
+    header {
+      background-color: var(--white);
+      border-bottom: 1px solid #D9E2EC;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: var(--primary-color);
+      text-decoration: none;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--text-dark);
+      font-weight: 500;
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+    }
+
+    nav a:hover, nav a:focus {
+      background-color: var(--bg-light);
+      color: var(--primary-color);
+      outline: 2px solid var(--primary-color);
+    }
+
+    /* Hero Section */
+    .hero {
+      background-color: var(--primary-color);
+      color: var(--white);
+      padding: 4.5rem 1.5rem;
+      text-align: center;
+    }
+
+    .hero-content {
+      max-width: 750px;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      color: #E6ECF5;
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: var(--white);
+      color: var(--primary-color);
+      padding: 0.85rem 1.75rem;
+      font-weight: 700;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.2s;
+    }
+
+    .btn:hover, .btn:focus {
+      background-color: #E6ECF5;
+      outline: 3px solid #82A6CB;
+    }
+
+    /* Main Content Layout */
+    section {
+      padding: 4rem 1.5rem;
+    }
+
+    section:nth-of-type(even) {
+      background-color: var(--bg-light);
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    h2 {
+      font-size: 1.85rem;
+      color: var(--primary-color);
+      margin-bottom: 1.5rem;
+      border-bottom: 2px solid #D9E2EC;
+      padding-bottom: 0.5rem;
+    }
+
+    /* About Grid */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .profile-placeholder {
+      width: 100%;
+      max-width: 250px;
+      aspect-ratio: 1 / 1;
+      background-color: #D9E2EC;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary-color);
+      font-weight: 600;
+      text-align: center;
+      padding: 1rem;
+      margin: 0 auto;
+    }
+
+    /* Experience & Cards */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: var(--white);
+      padding: 1.5rem;
+      border-radius: 6px;
+      border: 1px solid #D9E2EC;
+    }
+
+    .card h3 {
+      color: var(--primary-color);
+      margin-bottom: 0.25rem;
+    }
+
+    .card .meta {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
+      font-weight: 600;
+    }
+
+    /* Contact Section */
+    .contact-box {
+      background-color: var(--white);
+      padding: 2rem;
+      border-radius: 6px;
+      border: 1px solid #D9E2EC;
+      text-align: center;
+    }
+
+    .contact-links {
+      margin-top: 1.5rem;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .contact-links a {
+      color: var(--primary-color);
+      font-weight: 600;
+      text-decoration: underline;
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--text-dark);
+      color: var(--white);
+      text-align: center;
+      padding: 2rem 1.5rem;
+      font-size: 0.9rem;
+    }
+
+    /* Mobile Responsiveness */
+    @media (max-width: 700px) {
+      .about-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      nav ul {
+        gap: 0.75rem;
+        margin-top: 0.5rem;
+      }
+      .hero h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Accessibility Skip Link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Header & Navigation -->
+  <header>
+    <div class="nav-container">
+      <a href="#" class="logo">Jordan Taylor</a>
+      <nav aria-label="Primary Navigation">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main id="main-content">
+
+    <!-- Hero / Value Proposition -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Detail-Oriented Accounting &amp; Finance Student</h1>
+        <p>Combining analytical precision, audit internship experience, and student leadership to help organizations make sound financial decisions.</p>
+        <a href="#contact" class="btn">Connect With Me</a>
+      </div>
+    </section>
+
+    <!-- Section 1: About & Career Goals -->
+    <section id="about">
+      <div class="container">
+        <h2>About &amp; Career Goals</h2>
+        <div class="about-grid">
+          <!-- Replace this div with an <img> tag once you have a headshot -->
+          <div class="profile-placeholder" role="img" aria-label="Placeholder for Jordan Taylor's professional headshot">
+            [Add Your Professional Headshot Here]
+          </div>
+          <div>
+            <p>Hello! I am a senior Business Administration student concentrating in Accounting, currently pursuing eligibility for the CPA exam. My coursework and hands-on internships have given me a strong foundation in financial reporting, tax compliance, and data analysis.</p>
+            <br>
+            <p><strong>Career Objective:</strong> Seeking an entry-level Audit or Tax Associate role starting Fall 2027 where I can contribute strong problem-solving skills and grow within a collaborative public accounting team.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: Experience & Internships -->
+    <section id="experience">
+      <div class="container">
+        <h2>Accounting &amp; Business Experience</h2>
+        <div class="card-grid">
+          <article class="card">
+            <h3>Tax Preparation Intern</h3>
+            <p class="meta">Midwest Financial Group | Jan 2026 – Apr 2026</p>
+            <p>Prepared over 60 individual and small-business tax returns using UltraTax. Reviewed client financial statements for accuracy and identified deductible expenses.</p>
+          </article>
+          <article class="card">
+            <h3>VITA Volunteer Tax Preparer</h3>
+            <p class="meta">IRS Volunteer Income Tax Assistance | Spring 2025</p>
+            <p>Earned IRS Advanced certification to prepare free federal and state tax returns for local community members and students.</p>
+          </article>
+          <article class="card">
+            <h3>Accounting Peer Tutor</h3>
+            <p class="meta">College of Business Learning Center | 2024 – Present</p>
+            <p>Assisted 40+ undergraduate students with Financial and Managerial Accounting concepts, improving exam readiness and study habits.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Education & Leadership -->
+    <section id="education">
+      <div class="container">
+        <h2>Education, Skills &amp; Leadership</h2>
+        <div class="card-grid">
+          <article class="card">
+            <h3>B.S. in Business Administration</h3>
+            <p class="meta">Concentration in Accounting | Expected May 2027</p>
+            <p><strong>GPA:</strong> 3.85 / 4.00 | Dean's List (All Semesters). Relevant coursework includes Intermediate Accounting I &amp; II, Auditing, and Federal Taxation.</p>
+          </article>
+          <article class="card">
+            <h3>Treasurer, Accounting Club</h3>
+            <p class="meta">Student Organization Leadership | 2025 – Present</p>
+            <p>Managed an annual budget of $4,500, coordinated firm networking nights with regional recruiters, and presented monthly financial reports.</p>
+          </article>
+          <article class="card">
+            <h3>Technical &amp; Analytical Skills</h3>
+            <p class="meta">Software &amp; Certifications</p>
+            <p>Microsoft Excel (Pivot Tables, VLOOKUP, XLOOKUP), QuickBooks Online Certified, UltraTax CS, and basic SQL data querying.</p>
